@@ -1,0 +1,3 @@
+Symfony2 plugin for ViM
+
+This plugin handles symfony routing and DIC autocompletion and php stack trace navigation using quickfix list.
