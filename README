@@ -1,3 +1,35 @@
 Symfony2 plugin for ViM
+=======================
 
-This plugin handles symfony routing and DIC autocompletion and php stack trace navigation using quickfix list.
+This plugin handles:
+    * symfony routing autocompletion
+    * symfony DIC autocompletion
+    * php stack trace navigation using quickfix list
+
+=========================
+
+To handle routing or DIC autocompletion, you must have a ``app/console`` script that returns valid output concerning dic and routing. 
+In other terms, check that ``app/console conteriner:debug`` and ``app/console router:debug`` are working well.
+
+Then you can use <C-x><C-u> (user completion feature) to see all routes and DIC services with some extra informations in the ViM's menu popup.
+
+=========================
+
+To handle stack trace navigation with Symfony2, you can use this exception handler class:
+
+    https://github.com/docteurklein/vim-symfony/blob/master/VimExceptionHandler.php
+
+Don't forget to require it in your autoload system.
+
+Then you'll have to register the exception listener, for example (in your config_dev.yml):
+
+    services:
+        vim.stack_trace:
+            class: VimExceptionHandler
+            tags:
+                -  { name: 'kernel.event_listener', event: 'kernel.exception', method: 'onKernelException' }
+
+To use it in another system, just use the same class by typing:
+
+    // require 'VimExceptionHandler.php'
+    VimExceptionHandler::register();
