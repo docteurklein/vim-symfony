@@ -9,7 +9,7 @@ This plugin handles:
 =========================
 
 To handle routing or DIC autocompletion, you must have a ``app/console`` script that returns valid output concerning dic and routing. 
-In other terms, check that ``app/console conteriner:debug`` and ``app/console router:debug`` are working well.
+In other terms, check that ``app/console container:debug`` and ``app/console router:debug`` are working well.
 
 Then you can use <C-x><C-u> (user completion feature) to see all routes and DIC services with some extra informations in the ViM's menu popup.
 
