@@ -4,14 +4,22 @@ Symfony2 plugin for ViM
 This plugin handles:
     * symfony routing autocompletion
     * symfony DIC autocompletion
+    * symfony console
     * php stack trace navigation using quickfix list
 
 =========================
 
-To handle routing or DIC autocompletion, you must have a ``app/console`` script that returns valid output concerning dic and routing. 
+To handle routing or DIC autocompletion, you must have a ``app/console`` script that returns valid output concerning dic and routing.
 In other terms, check that ``app/console container:debug`` and ``app/console router:debug`` are working well.
 
 Then you can use <C-x><C-u> (user completion feature) to see all routes and DIC services with some extra informations in the ViM's menu popup.
+
+
+=========================
+
+To open the Symfony console, you must have a ``app/console`` script to enter on interactive console.
+
+<C-M> To open the console.
 
 =========================
 

@@ -55,3 +55,6 @@ fun! CompleteSymfony(findstart, base)
         return res
 endfun
 set completefunc=CompleteSymfony
+
+" Open console
+map <C-M> :! php app/console -s<CR>
