@@ -9,17 +9,21 @@ This plugin handles:
 
 =========================
 
-To handle routing or DIC autocompletion, you must have a ``app/console`` script that returns valid output concerning dic and routing.
-In other terms, check that ``app/console container:debug`` and ``app/console router:debug`` are working well.
+Variables:
+
+You can overwride two variables on your .vimrc:
+
+    let g:SymfonyAppConsoleCaller = "php"
+    let g:SymfonyAppConsolePath = "app/console"
+
+=========================
+
+To handle routing or DIC autocompletion, you must define the path to your app console that returns valid output concerning dic and routing.
 
 Then you can use <C-x><C-u> (user completion feature) to see all routes and DIC services with some extra informations in the ViM's menu popup.
 
 
-=========================
-
-To open the Symfony console, you must have a ``app/console`` script to enter on interactive console.
-
-<C-M> To open the console.
+<C-M> To open the Symfony interactive console.
 
 =========================
 
@@ -41,3 +45,4 @@ To use it in another system, just use the same class by typing:
 
     // require 'VimExceptionHandler.php'
     VimExceptionHandler::register();
+
