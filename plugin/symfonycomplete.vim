@@ -72,5 +72,5 @@ set completefunc=CompleteSymfony
 let g:symfony_enable_shell_cmd = g:symfony_app_console_caller." ".g:symfony_app_console_path." -s"
 
 if(g:symfony_enable_shell_mapping == 1)
-    map <C-M> :execute ":!"g:symfony_enable_shell_cmd<CR>
+    map <C-F> :execute ":!"g:symfony_enable_shell_cmd<CR>
 endif
