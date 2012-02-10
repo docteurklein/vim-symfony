@@ -1,13 +1,17 @@
-if !exists("g:SymfonyAppConsolePath")
-    let g:SymfonyAppConsolePath = "app/console"
+if !exists("g:symfony_app_console_path")
+    let g:symfony_app_console_path = "app/console"
 endif
 
-if !exists("g:SymfonyAppConsoleCaller")
-    let g:SymfonyAppConsoleCaller = "php"
+if !exists("g:symfony_app_console_caller")
+    let g:symfony_app_console_caller = "php"
+endif
+
+if !exists("g:symfony_enable_shell_mapping")
+    let g:symfony_enable_shell_mapping = 1
 endif
 
 fun! CompleteSymfonyContainer(base, res)
-    let shellcmd = g:SymfonyAppConsoleCaller. ' '.g:SymfonyAppConsolePath.' container:debug'
+    let shellcmd = g:symfony_app_console_caller. ' '.g:symfony_app_console_path.' container:debug'
     let output = system(shellcmd)
     if v:shell_error
         return 0
@@ -26,7 +30,7 @@ fun! CompleteSymfonyContainer(base, res)
 endfun
 
 fun! CompleteSymfonyRouter(base, res)
-    let shellcmd = g:SymfonyAppConsoleCaller. ' '.g:SymfonyAppConsolePath.' router:debug'
+    let shellcmd = g:symfony_app_console_caller. ' '.g:symfony_app_console_path.' router:debug'
     let output = system(shellcmd)
     if v:shell_error
         return 0
@@ -65,5 +69,8 @@ set completefunc=CompleteSymfony
 
 " Open console
 
-let cmd = g:SymfonyAppConsoleCaller." ".g:SymfonyAppConsolePath." -s"
-map <C-M> :execute ":!"cmd<CR>
+let g:symfony_enable_shell_cmd = g:symfony_app_console_caller." ".g:symfony_app_console_path." -s"
+
+if(g:symfony_enable_shell_mapping == 1)
+    map <C-M> :execute ":!"g:symfony_enable_shell_cmd<CR>
+endif

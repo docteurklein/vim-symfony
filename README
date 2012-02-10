@@ -13,8 +13,8 @@ Variables:
 
 You can overwride two variables on your .vimrc:
 
-    let g:SymfonyAppConsoleCaller = "php"
-    let g:SymfonyAppConsolePath = "app/console"
+    let g:symfony_app_console_caller= "php"
+    let g:symfony_app_console_path= "app/console"
 
 =========================
 
@@ -22,8 +22,18 @@ To handle routing or DIC autocompletion, you must define the path to your app co
 
 Then you can use <C-x><C-u> (user completion feature) to see all routes and DIC services with some extra informations in the ViM's menu popup.
 
+**Symfony interactive console**
 
-<C-M> To open the Symfony interactive console.
+    <C-M> To open the Symfony interactive console.
+
+If you want to change this:
+
+    let g:symfony_enable_shell_mapping = 0 "disable the mapping of symfony console
+
+    " Use your key instead of default key which is <C-M>
+    map *MY KEY* :execute ":!"g:symfony_enable_shell_cmd<CR>
+
+
 
 =========================
 
@@ -45,4 +55,5 @@ To use it in another system, just use the same class by typing:
 
     // require 'VimExceptionHandler.php'
     VimExceptionHandler::register();
+
 
