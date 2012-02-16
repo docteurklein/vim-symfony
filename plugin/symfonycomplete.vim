@@ -65,10 +65,23 @@ fun! CompleteSymfony(findstart, base)
 
         return res
 endfun
-set completefunc=CompleteSymfony
+
+" activate completefunc only in twig, php, xml and yaml buffers
+let oldcompletefunc = &completefunc
+
+au BufEnter *.twig   setlocal completefunc=CompleteSymfony
+au BufEnter *.php    setlocal completefunc=CompleteSymfony
+au BufEnter *.yml    setlocal completefunc=CompleteSymfony
+au BufEnter *.xml    setlocal completefunc=CompleteSymfony
+
+" once leaved these buffers, switch back to the old completefunc, if any
+au BufLeave *.twig   setlocal completefunc=oldcompletefunc
+au BufLeave *.php    setlocal completefunc=oldcompletefunc
+au BufLeave *.yml    setlocal completefunc=oldcompletefunc
+au BufLeave *.xml    setlocal completefunc=oldcompletefunc
+
 
 " Open console
-
 let g:symfony_enable_shell_cmd = g:symfony_app_console_caller." ".g:symfony_app_console_path." -s"
 
 if(g:symfony_enable_shell_mapping == 1)
