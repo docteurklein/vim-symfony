@@ -7,7 +7,7 @@ if !exists("g:symfony_app_console_caller")
 endif
 
 if !exists("g:symfony_enable_shell_mapping")
-    let g:symfony_enable_shell_mapping = 1
+    let g:symfony_enable_shell_mapping = 0
 endif
 
 fun! CompleteSymfonyContainer(base, res)
