@@ -24,16 +24,13 @@ Then you can use <C-x><C-u> (user completion feature) to see all routes and DIC 
 
 **Symfony interactive console**
 
-    <C-F> To open the Symfony interactive console.
+If you want to active <Leader>f maps to launch interactive shell:
 
-If you want to change this:
+    let g:symfony_enable_shell_mapping = 1
 
-    let g:symfony_enable_shell_mapping = 0 "disable the mapping of symfony console
+If you want to change it:
 
-    " Use your key instead of default key which is <C-F>
-    map *MY KEY* :execute ":!"g:symfony_enable_shell_cmd<CR>
-
-
+    map *MY KEY* :call SymfonyInteractiveShell()<CR>
 
 =========================
 
