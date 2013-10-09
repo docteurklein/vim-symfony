@@ -2,10 +2,11 @@ Symfony2 plugin for ViM
 =======================
 
 This plugin handles:
-    * symfony routing autocompletion
-    * symfony DIC autocompletion
-    * symfony console
-    * php stack trace navigation using quickfix list
+
+ - symfony routing autocompletion
+ - symfony DIC autocompletion
+ - symfony console
+ - php stack trace navigation using quickfix list
 
 =========================
 
