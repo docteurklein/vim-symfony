@@ -22,6 +22,12 @@ class VimExceptionHandler
     );
 
     private $level;
+    private $vimServerName;
+    
+    public function __construct($vimServerName = 'dev')
+    {
+        $this->vimServerName = $vimServerName;
+    }
 
     static public function register($level = null)
     {
@@ -70,7 +76,7 @@ class VimExceptionHandler
         }
         file_put_contents('/tmp/stack.php', $stack);
 
-        $cmd = sprintf('vim --servername %s --remote-send ":call PhpStackTrace()<CR>"', 'florian');
+        $cmd = sprintf('vim --servername %s --remote-send "<Esc>:call PhpStackTrace()<CR>"', $this->vimServerName);
         shell_exec($cmd);
     }
 }
