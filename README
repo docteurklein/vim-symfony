@@ -48,6 +48,7 @@ Then you'll have to register the exception listener, for example (in your config
     services:
         vim.stack_trace:
             class: VimExceptionHandler
+            arguments: [ 'dev-vim-server' ] # optional vim server name, defaults to 'dev'
             tags:
                 -  { name: 'kernel.event_listener', event: 'kernel.exception', method: 'onKernelException' }
 
@@ -55,5 +56,10 @@ To use it in another system, just use the same class by typing:
 
     // require 'VimExceptionHandler.php'
     VimExceptionHandler::register();
+
+
+Then launch vim using:
+
+    vim --servername dev-vim-server
 
 
