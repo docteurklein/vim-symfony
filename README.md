@@ -10,7 +10,7 @@ This plugin handles:
 
 =========================
 
-Variables:
+## Config Variables:
 
 You can overwride two variables on your .vimrc:
 
@@ -18,6 +18,8 @@ You can overwride two variables on your .vimrc:
     let g:symfony_app_console_path= "app/console"
 
 =========================
+
+## Service & routing completion
 
 To handle routing or DIC autocompletion, you must define the path to your app console that returns valid output concerning dic and routing.
 
@@ -37,6 +39,8 @@ If you want to change this:
 
 
 =========================
+
+## stack trace navigation
 
 To handle stack trace navigation with Symfony2, you can use this exception handler class:
 
