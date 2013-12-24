@@ -38,10 +38,10 @@ fun! CompleteSymfonyRouter(base, res)
 
     for m in split(output, "\n")
         let row = split(m)
-        if len(row) == 3
-            let [route, method, url] = row
+        if len(row) == 5
+            let [route, method, scheme, host, url] = row
             if route =~ '^' . a:base
-                let menu = 'method: '. method .', url: '. url
+                let menu = method.' '.scheme.' '.host.' '.url
                 call add(a:res, { 'word': route, 'menu': menu })
             endif
         endif
