@@ -19,10 +19,10 @@ fun! CompleteSymfonyContainer(base, res)
 
     for m in split(output, "\n")
         let row = split(m)
-        if len(row) == 3
-            let [service, scope, class] = row
+        if len(row) == 2
+            let [service, class] = row
             if service =~ '^' . a:base
-                let menu = 'scope: '. scope .', class: '. class
+                let menu = 'class: '. class
                 call add(a:res, { 'word': service, 'menu': menu })
             endif
         endif
