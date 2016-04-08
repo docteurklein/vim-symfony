@@ -16,6 +16,9 @@ You can overwride two variables on your .vimrc:
 
     let g:symfony_app_console_caller= "php"
     let g:symfony_app_console_path= "app/console"
+    
+You can also define this config per directory. Just add `set exrc` in your global .vimrc.  
+This will automatically read any `.vimrc` in the current folder (where you launched vim).
 
 =========================
 
