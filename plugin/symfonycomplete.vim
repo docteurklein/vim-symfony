@@ -11,18 +11,19 @@ if !exists("g:symfony_enable_shell_mapping")
 endif
 
 fun! CompleteSymfonyContainer(base, res)
-    let shellcmd = g:symfony_app_console_caller. ' '.g:symfony_app_console_path.' container:debug'
+    let shellcmd = g:symfony_app_console_caller. ' '.g:symfony_app_console_path.' debug:container'
     let output = system(shellcmd)
     if v:shell_error
+        echo output
         return 0
     endif
 
     for m in split(output, "\n")
         let row = split(m)
-        if len(row) == 3
-            let [service, scope, class] = row
+        if len(row) == 2
+            let [service, class] = row
             if service =~ '^' . a:base
-                let menu = 'scope: '. scope .', class: '. class
+                let menu = 'class: '. class
                 call add(a:res, { 'word': service, 'menu': menu })
             endif
         endif
@@ -30,9 +31,10 @@ fun! CompleteSymfonyContainer(base, res)
 endfun
 
 fun! CompleteSymfonyRouter(base, res)
-    let shellcmd = g:symfony_app_console_caller. ' '.g:symfony_app_console_path.' router:debug'
+    let shellcmd = g:symfony_app_console_caller. ' '.g:symfony_app_console_path.' debug:router'
     let output = system(shellcmd)
     if v:shell_error
+        echo output
         return 0
     endif
 
